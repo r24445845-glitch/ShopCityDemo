@@ -222,43 +222,27 @@
 
     <script type="module">
         // Firebase Imports
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { 
-            getAuth, 
-            onAuthStateChanged, 
-            signOut,
-            setPersistence,
-            browserSessionPersistence, // This is key for re-login requirement
-            signInWithPopup,
-            GoogleAuthProvider,
-            signInWithCustomToken,
-            signInAnonymously
-        } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { 
-            getFirestore, 
-            collection, 
-            addDoc, 
-            doc, 
-            getDoc,
-            onSnapshot,
-            query,
-            serverTimestamp,
-            where
-        } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
 
-        // --- Firebase Configuration ---
-        // These variables are placeholders. In a real environment (like the one this code runs in),
-        // they are replaced with actual configuration values.
-        const firebaseConfig = typeof __firebase_config !== 'undefined' 
-            ? JSON.parse(__firebase_config)
-            : { apiKey: "YOUR_API_KEY", authDomain: "YOUR_AUTH_DOMAIN", projectId: "YOUR_PROJECT_ID", storageBucket: "YOUR_STORAGE_BUCKET", messagingSenderId: "YOUR_SENDER_ID", appId: "YOUR_APP_ID" };
-        
-        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-shopcity-app';
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyC8eHyJgkGINTMsJyqYX-o1iaSAdBy6U_4",
+            authDomain: "shopcity-demo.firebaseapp.com",
+            projectId: "shopcity-demo",
+            storageBucket: "shopcity-demo.firebasestorage.app",
+            messagingSenderId: "670232535570",
+            appId: "1:670232535570:web:7304255ce38c89b954eecb",
+            measurementId: "G-JFX8NZZ51T"
+        };
 
-        // Initialize Firebase
+  // Initialize Firebase
         const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-        const db = getFirestore(app);
+        const analytics = getAnalytics(app);
 
         // --- State Management ---
         let currentUser = null;
